@@ -93,11 +93,65 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
+        self.set_light_on()
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        # if light is on and moving right go the full list comparing
+        # if not self.light_is_on() and self.can_move_right():
+        while self.light_is_on():
+            self.swap_item()
+            self.move_right()
+            self.set_light_off()
+            while self.can_move_right():
+                # if we don't have anything
+                # if self.compare_item() == None:
+                #     # if not holding anything pick up the item.
+                #     self.swap_item()
+                #     self.move_right()
+                # move through the list
+                # for num in self._list:
+                    # if we are holding an equal or larger item than is at this index move on
+                if self.compare_item() <= 0:
+                    self.swap_item()
+                    # self.move_right()
+                    # pass
+                # otherwise swap then move on
+                else:
+                    self.set_light_on()
+                self.move_right()
+                    # turn the light on to signal we have made a change.
+                    # if not self.light_is_on():
+            self.swap_item()
+            # if self.light_is_on():
+                # return self.sort()
+                # while self.light_is_on():
+            while self.can_move_left():
+                # again if we aren't holding anything
+                # if self.compare_item() == None:
+                # #     # if not holding anything pick up the item.
+                #     self.swap_item()
+                #     self.move_left()
+                # for num in self._list:
+                    # if we are holding the smaller item
+                if self.compare_item() >= 0:
+                    self.swap_item()
+                    # self.move_left()
+                        # pass
+                    # otherwise swap and turn the light on to signal a change was made
+                else:
+                    # self.swap_item()
+                    # self.move_left()
+                    # if not self.light_is_on():
+                    self.set_light_on()
+                self.move_left()
+            self.swap_item()
+            # if not self.light_is_on():
+                # return self.sort()
+        # else:
+        # return list
+
+
 
 
 if __name__ == "__main__":
